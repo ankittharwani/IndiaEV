@@ -1,4 +1,4 @@
-import { REFERENCE_LINKS } from '../data/cars';
+import { REFERENCE_LINKS } from "../data/cars";
 
 export default function LinksTab() {
   return (
@@ -25,10 +25,23 @@ export default function LinksTab() {
         </div>
       ))}
 
-      <div style={{ textAlign: 'center', padding: '2rem 0 1rem', fontSize: 12, color: 'var(--muted)', lineHeight: 1.9 }}>
-        Research compiled May 2026<br />
-        All prices ex-showroom Delhi · Verify with dealer before purchase<br /><br />
-        <span style={{ color: 'var(--subtle)' }}>Built by Ankit for the family 🙏</span>
+      <div
+        style={{
+          textAlign: "center",
+          padding: "2rem 0 1rem",
+          fontSize: 12,
+          color: "var(--muted)",
+          lineHeight: 1.9,
+        }}
+      >
+        Research compiled May 2026
+        <br />
+        All prices ex-showroom Delhi · Verify with dealer before purchase
+        <br />
+        <br />
+        <span style={{ color: "var(--subtle)" }}>
+          Built by Ankit for the family 🙏
+        </span>
       </div>
     </div>
   );

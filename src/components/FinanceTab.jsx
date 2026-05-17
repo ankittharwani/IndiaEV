@@ -1,17 +1,19 @@
-import { useState, useMemo } from 'react';
-import { LOAN_RATES } from '../data/cars';
-import { fmt, fmtPct } from '../utils/format';
+import { useState, useMemo } from "react";
+import { LOAN_RATES } from "../data/cars";
+import { fmt, fmtPct } from "../utils/format";
 
 const SCENARIOS = [
-  { label: 'NRE FD (7%)', capRate: 7, loanRate: 8.75 },
-  { label: 'Break-even', capRate: 8.75, loanRate: 8.75 },
-  { label: 'Equity fund (12%)', capRate: 12, loanRate: 8.75 },
-  { label: 'Aggressive (14%)', capRate: 14, loanRate: 8.75 },
+  { label: "NRE FD (7%)", capRate: 7, loanRate: 8.75 },
+  { label: "Break-even", capRate: 8.75, loanRate: 8.75 },
+  { label: "Equity fund (12%)", capRate: 12, loanRate: 8.75 },
+  { label: "Aggressive (14%)", capRate: 14, loanRate: 8.75 },
 ];
 
 function calcEMI(principal, annualRate, months) {
   const r = annualRate / 100 / 12;
-  return (principal * r * Math.pow(1 + r, months)) / (Math.pow(1 + r, months) - 1);
+  return (
+    (principal * r * Math.pow(1 + r, months)) / (Math.pow(1 + r, months) - 1)
+  );
 }
 
 export default function FinanceTab() {
@@ -32,7 +34,17 @@ export default function FinanceTab() {
     const principalPct = Math.round((carPrice / totalRepaid) * 100);
     const financeWins = netLoan < netCash;
     const diff = Math.abs(netCash - netLoan);
-    return { emi, totalRepaid, interest, capGrowth, netCash, netLoan, principalPct, financeWins, diff };
+    return {
+      emi,
+      totalRepaid,
+      interest,
+      capGrowth,
+      netCash,
+      netLoan,
+      principalPct,
+      financeWins,
+      diff,
+    };
   }, [carPrice, loanRate, tenure, capRate]);
 
   const applyScenario = (idx) => {
@@ -46,7 +58,10 @@ export default function FinanceTab() {
       <div className="card">
         <div className="card-label">The core question</div>
         <p className="body-text">
-          With ₹1cr+ sitting in India, pulling ₹15L for the car has an opportunity cost. Should you finance and keep capital invested — or pay cash and avoid interest? The answer depends on what your money earns vs what the loan costs you.
+          With ₹1cr+ sitting in India, pulling ₹15L for the car has an
+          opportunity cost. Should you finance and keep capital invested — or
+          pay cash and avoid interest? The answer depends on what your money
+          earns vs what the loan costs you.
         </p>
       </div>
 
@@ -59,7 +74,7 @@ export default function FinanceTab() {
           {SCENARIOS.map((s, i) => (
             <button
               key={s.label}
-              className={`scenario-btn ${activeScenario === i ? 'scenario-btn--active' : ''}`}
+              className={`scenario-btn ${activeScenario === i ? "scenario-btn--active" : ""}`}
               onClick={() => applyScenario(i)}
             >
               {s.label}
@@ -71,10 +86,19 @@ export default function FinanceTab() {
         <div className="slider-wrap">
           <div className="slider-label">
             <span>Car price</span>
-            <span className="slider-val">₹{(carPrice / 100000).toFixed(2)}L</span>
+            <span className="slider-val">
+              ₹{(carPrice / 100000).toFixed(2)}L
+            </span>
           </div>
-          <input type="range" min={1400000} max={1800000} step={50000} value={carPrice}
-            onChange={(e) => setCarPrice(Number(e.target.value))} aria-label="Car price" />
+          <input
+            type="range"
+            min={1400000}
+            max={1800000}
+            step={50000}
+            value={carPrice}
+            onChange={(e) => setCarPrice(Number(e.target.value))}
+            aria-label="Car price"
+          />
         </div>
 
         <div className="slider-wrap">
@@ -82,9 +106,18 @@ export default function FinanceTab() {
             <span>Loan interest rate</span>
             <span className="slider-val">{fmtPct(loanRate)}</span>
           </div>
-          <input type="range" min={7.5} max={11.5} step={0.25} value={loanRate}
-            onChange={(e) => { setLoanRate(Number(e.target.value)); setActiveScenario(-1); }}
-            aria-label="Loan interest rate" />
+          <input
+            type="range"
+            min={7.5}
+            max={11.5}
+            step={0.25}
+            value={loanRate}
+            onChange={(e) => {
+              setLoanRate(Number(e.target.value));
+              setActiveScenario(-1);
+            }}
+            aria-label="Loan interest rate"
+          />
         </div>
 
         <div className="slider-wrap">
@@ -92,8 +125,15 @@ export default function FinanceTab() {
             <span>Loan tenure</span>
             <span className="slider-val">{tenure} years</span>
           </div>
-          <input type="range" min={3} max={7} step={1} value={tenure}
-            onChange={(e) => setTenure(Number(e.target.value))} aria-label="Loan tenure" />
+          <input
+            type="range"
+            min={3}
+            max={7}
+            step={1}
+            value={tenure}
+            onChange={(e) => setTenure(Number(e.target.value))}
+            aria-label="Loan tenure"
+          />
         </div>
 
         <div className="slider-wrap">
@@ -101,9 +141,18 @@ export default function FinanceTab() {
             <span>Your capital earns</span>
             <span className="slider-val">{fmtPct(capRate)} p.a.</span>
           </div>
-          <input type="range" min={4} max={15} step={0.5} value={capRate}
-            onChange={(e) => { setCapRate(Number(e.target.value)); setActiveScenario(-1); }}
-            aria-label="Capital return rate" />
+          <input
+            type="range"
+            min={4}
+            max={15}
+            step={0.5}
+            value={capRate}
+            onChange={(e) => {
+              setCapRate(Number(e.target.value));
+              setActiveScenario(-1);
+            }}
+            aria-label="Capital return rate"
+          />
         </div>
 
         {/* EMI + interest summary */}
@@ -111,7 +160,9 @@ export default function FinanceTab() {
           <div className="result-card">
             <div className="rc-label">Monthly EMI</div>
             <div className="rc-val">₹{Math.round(result.emi / 1000)}K/mo</div>
-            <div className="rc-sub">on full ₹{(carPrice / 100000).toFixed(1)}L</div>
+            <div className="rc-sub">
+              on full ₹{(carPrice / 100000).toFixed(1)}L
+            </div>
           </div>
           <div className="result-card">
             <div className="rc-label">Total interest paid</div>
@@ -127,19 +178,29 @@ export default function FinanceTab() {
             <span>Interest — {100 - result.principalPct}%</span>
           </div>
           <div className="interest-bar">
-            <div className="interest-bar__principal" style={{ width: `${result.principalPct}%` }} />
-            <div className="interest-bar__interest" style={{ width: `${100 - result.principalPct}%` }} />
+            <div
+              className="interest-bar__principal"
+              style={{ width: `${result.principalPct}%` }}
+            />
+            <div
+              className="interest-bar__interest"
+              style={{ width: `${100 - result.principalPct}%` }}
+            />
           </div>
         </div>
 
         {/* Net cost comparison */}
         <div className="result-grid">
-          <div className={`result-card ${!result.financeWins ? 'result-card--winner' : 'result-card--loser'}`}>
+          <div
+            className={`result-card ${!result.financeWins ? "result-card--winner" : "result-card--loser"}`}
+          >
             <div className="rc-label">Pay cash — net cost</div>
             <div className="rc-val">{fmt(result.netCash)}</div>
             <div className="rc-sub">car + returns foregone</div>
           </div>
-          <div className={`result-card ${result.financeWins ? 'result-card--winner' : 'result-card--loser'}`}>
+          <div
+            className={`result-card ${result.financeWins ? "result-card--winner" : "result-card--loser"}`}
+          >
             <div className="rc-label">Finance — net cost</div>
             <div className="rc-val">{fmt(result.netLoan)}</div>
             <div className="rc-sub">repaid − returns earned</div>
@@ -178,7 +239,9 @@ export default function FinanceTab() {
       </div>
 
       <div className="warn-box">
-        <strong>Important:</strong> This is illustrative analysis only. Please consult a CA or financial advisor before deciding, especially given NRI FEMA/repatriation considerations for money held in India.
+        <strong>Important:</strong> This is illustrative analysis only. Please
+        consult a CA or financial advisor before deciding, especially given NRI
+        FEMA/repatriation considerations for money held in India.
       </div>
     </div>
   );

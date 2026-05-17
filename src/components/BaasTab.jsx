@@ -1,6 +1,6 @@
-import { useState, useMemo } from 'react';
-import { BAAS_FINANCIERS } from '../data/cars';
-import { fmt, fmtKm } from '../utils/format';
+import { useState, useMemo } from "react";
+import { BAAS_FINANCIERS } from "../data/cars";
+import { fmt, fmtKm } from "../utils/format";
 
 const PETROL_RATE = 105;
 const PETROL_MILEAGE = 14;
@@ -28,7 +28,11 @@ export default function BaasTab() {
       <div className="card">
         <div className="card-label">What is BaaS?</div>
         <p className="body-text">
-          Battery-as-a-Service separates the battery cost from the car. You buy the car at a lower upfront price (without the battery), then pay per km for battery usage. VidyutTech owns the battery and covers all malfunctions under a <strong>lifetime warranty</strong> — battery replacement risk is entirely theirs.
+          Battery-as-a-Service separates the battery cost from the car. You buy
+          the car at a lower upfront price (without the battery), then pay per
+          km for battery usage. VidyutTech owns the battery and covers all
+          malfunctions under a <strong>lifetime warranty</strong> — battery
+          replacement risk is entirely theirs.
         </p>
         <div className="baas-quick-stats">
           <div className="baas-stat">
@@ -74,7 +78,7 @@ export default function BaasTab() {
           <div className="result-card">
             <div className="rc-label">Battery rental</div>
             <div className="rc-val">{fmt(calcs.rent)}</div>
-            <div className="rc-sub">₹3.5 × {km.toLocaleString('en-IN')} km</div>
+            <div className="rc-sub">₹3.5 × {km.toLocaleString("en-IN")} km</div>
           </div>
           <div className="result-card">
             <div className="rc-label">Electricity (~₹1/km)</div>
@@ -93,11 +97,19 @@ export default function BaasTab() {
           </div>
         </div>
 
-        <div className={isLowMileage ? 'info-box' : 'note-box'}>
+        <div className={isLowMileage ? "info-box" : "note-box"}>
           {isLowMileage ? (
-            <>At {fmtKm(km)}, <strong>VidyutTech is ideal</strong> — you pay only {fmt(calcs.rent)}/month with no minimum penalty. Bajaj/Hero would charge ₹5,250 regardless.</>
+            <>
+              At {fmtKm(km)}, <strong>VidyutTech is ideal</strong> — you pay
+              only {fmt(calcs.rent)}/month with no minimum penalty. Bajaj/Hero
+              would charge ₹5,250 regardless.
+            </>
           ) : (
-            <>At {fmtKm(km)}, <strong>Bajaj Finance</strong> may also work — fixed ₹5,250/month, no penalty for exceeding 1,500 km. Compare both before deciding.</>
+            <>
+              At {fmtKm(km)}, <strong>Bajaj Finance</strong> may also work —
+              fixed ₹5,250/month, no penalty for exceeding 1,500 km. Compare
+              both before deciding.
+            </>
           )}
         </div>
       </div>
@@ -108,16 +120,25 @@ export default function BaasTab() {
         <div className="petrol-compare">
           <div className="petrol-row">
             <span>Petrol cost (₹105/L, 14 km/L)</span>
-            <span className="petrol-row__val petrol-row__val--bad">{fmt(calcs.petrol)}/mo</span>
+            <span className="petrol-row__val petrol-row__val--bad">
+              {fmt(calcs.petrol)}/mo
+            </span>
           </div>
           <div className="petrol-row">
             <span>Windsor EV total monthly running</span>
-            <span className="petrol-row__val petrol-row__val--good">{fmt(calcs.total)}/mo</span>
+            <span className="petrol-row__val petrol-row__val--good">
+              {fmt(calcs.total)}/mo
+            </span>
           </div>
           <div className="petrol-row petrol-row--total">
-            <span><strong>Monthly savings vs petrol</strong></span>
-            <span className={`petrol-row__val ${calcs.saving > 0 ? 'petrol-row__val--good' : 'petrol-row__val--bad'}`}>
-              {calcs.saving > 0 ? fmt(calcs.saving) : '-' + fmt(-calcs.saving)}/mo
+            <span>
+              <strong>Monthly savings vs petrol</strong>
+            </span>
+            <span
+              className={`petrol-row__val ${calcs.saving > 0 ? "petrol-row__val--good" : "petrol-row__val--bad"}`}
+            >
+              {calcs.saving > 0 ? fmt(calcs.saving) : "-" + fmt(-calcs.saving)}
+              /mo
             </span>
           </div>
         </div>
@@ -127,7 +148,10 @@ export default function BaasTab() {
       <div className="card">
         <div className="card-label">All BaaS financiers — Windsor EV</div>
         {BAAS_FINANCIERS.map((f) => (
-          <div key={f.id} className={`fin-card ${f.recommended ? 'fin-card--pick' : ''}`}>
+          <div
+            key={f.id}
+            className={`fin-card ${f.recommended ? "fin-card--pick" : ""}`}
+          >
             <span className={`badge badge--${f.badgeType}`}>{f.badge}</span>
             <h4 className="fin-card__name">{f.name}</h4>
             <p className="fin-card__notes">{f.notes}</p>
@@ -136,7 +160,9 @@ export default function BaasTab() {
       </div>
 
       <div className="note-box">
-        <strong>Confirm with MG dealer:</strong> Security deposit amount · Tenure options (3 or 5 year) · Buyout terms if you want to own the battery later · What happens to the subscription at resale
+        <strong>Confirm with MG dealer:</strong> Security deposit amount ·
+        Tenure options (3 or 5 year) · Buyout terms if you want to own the
+        battery later · What happens to the subscription at resale
       </div>
     </div>
   );
