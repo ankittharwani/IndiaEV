@@ -207,7 +207,9 @@ body {
   display: flex;
   overflow-x: auto;
   scrollbar-width: none;
-  padding: 0 0.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 .nav::-webkit-scrollbar {
   display: none;
