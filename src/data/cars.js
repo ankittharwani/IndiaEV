@@ -156,7 +156,7 @@ export const WINDSOR_VARIANTS = [
       cluster: '8.8"',
       iSmart: true,
       wirelessCharge: true,
-      speakers: "9 + subwoofer",
+      speakers: "9 + sub",
       camera360: true,
       fastChargerBundled: true,
       maxDCCharge: "45 kW",

@@ -17,12 +17,15 @@ const TABS = [
   { id: "links", label: "Links", component: LinksTab },
 ];
 
+const skipQuiz =
+  new URLSearchParams(window.location.search).get("quiz") === "0";
+
 export default function App() {
   const [phase, setPhase] = useState("login");
   const [activeTab, setActiveTab] = useState("summary");
 
   if (phase === "login")
-    return <Login onSuccess={() => setPhase("birthday")} />;
+    return <Login onSuccess={() => setPhase(skipQuiz ? "main" : "birthday")} />;
 
   if (phase === "birthday")
     return (
