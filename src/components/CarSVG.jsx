@@ -51,5 +51,6 @@ export default function CarSVG({ model, height = 140 }) {
     );
   }
 
+  console.warn(`CarSVG: unknown model "${model}"`);
   return null;
 }

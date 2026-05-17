@@ -5,7 +5,7 @@ export default function Login({ onSuccess }) {
   const [err, setErr] = useState('');
   const [loading, setLoading] = useState(false);
 
-  const PASSWORD = import.meta.env.VITE_APP_PASSWORD || 'dadcar2026';
+  const PASSWORD = import.meta.env.VITE_APP_PASSWORD;
 
   const handleSubmit = (e) => {
     e.preventDefault();

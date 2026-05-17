@@ -1,6 +1,6 @@
 import { useState, useMemo } from 'react';
 import { BAAS_FINANCIERS } from '../data/cars';
-import { useFormatter } from '../hooks/useFormatter';
+import { fmt, fmtKm } from '../utils/format';
 
 const PETROL_RATE = 105;
 const PETROL_MILEAGE = 14;
@@ -9,7 +9,6 @@ const CHARGING_RATE = 1;
 
 export default function BaasTab() {
   const [km, setKm] = useState(1100);
-  const { fmt, fmtKm } = useFormatter();
 
   const calcs = useMemo(() => {
     const rent = km * BATTERY_RATE;

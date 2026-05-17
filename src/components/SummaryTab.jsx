@@ -40,7 +40,7 @@ export default function SummaryTab() {
         <div className="vb-eyebrow">Our recommendation</div>
         <div className="vb-main">MG Windsor EV Exclusive + VidyutTech BaaS</div>
         <div className="vb-sub">
-          ₹9.99L upfront (BaaS) · ₹3.5/km battery, no minimum · ~₹27K/month EMI if financed · lifetime battery warranty
+          ~₹10.5L upfront (BaaS, Exclusive — est.) · ₹3.5/km battery, no minimum · ~₹27K/month EMI if financed · lifetime battery warranty
         </div>
       </div>
 

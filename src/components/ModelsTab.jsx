@@ -32,7 +32,7 @@ export default function ModelsTab() {
             {m.tag && (
               <div
                 className="model-card__tag"
-                style={{ background: m.tagColor === '#1f7a5c' ? 'var(--green-bg)' : 'var(--blue-bg)', color: m.tagColor }}
+                style={{ background: m.tagStyle === 'green' ? 'var(--green-bg)' : 'var(--blue-bg)', color: m.tagColor }}
               >
                 {m.tag}
               </div>
@@ -72,7 +72,7 @@ export default function ModelsTab() {
                 <tr key={row.key}>
                   <td className="td-feat">{row.label}</td>
                   {MODELS.map((m) => {
-                    const val = m[row.key] ?? (row.key === 'ventilatedSeats' ? true : undefined);
+                    const val = m[row.key];
                     return (
                       <td key={m.id} className={m.highlight ? 'td-pick' : ''}>
                         {row.type === 'bool' || row.type === 'bool_true' ? (

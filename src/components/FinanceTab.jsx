@@ -1,6 +1,6 @@
 import { useState, useMemo } from 'react';
 import { LOAN_RATES } from '../data/cars';
-import { useFormatter } from '../hooks/useFormatter';
+import { fmt, fmtPct } from '../utils/format';
 
 const SCENARIOS = [
   { label: 'NRE FD (7%)', capRate: 7, loanRate: 8.75 },
@@ -15,12 +15,11 @@ function calcEMI(principal, annualRate, months) {
 }
 
 export default function FinanceTab() {
-  const [carPrice, setCarPrice] = useState(1553000);
+  const [carPrice, setCarPrice] = useState(1550000);
   const [loanRate, setLoanRate] = useState(8.75);
   const [tenure, setTenure] = useState(5);
   const [capRate, setCapRate] = useState(7);
   const [activeScenario, setActiveScenario] = useState(0);
-  const { fmt, fmtPct } = useFormatter();
 
   const result = useMemo(() => {
     const months = tenure * 12;
@@ -74,7 +73,7 @@ export default function FinanceTab() {
             <span>Car price</span>
             <span className="slider-val">₹{(carPrice / 100000).toFixed(2)}L</span>
           </div>
-          <input type="range" min={1409800} max={1809800} step={100000} value={carPrice}
+          <input type="range" min={1400000} max={1800000} step={50000} value={carPrice}
             onChange={(e) => setCarPrice(Number(e.target.value))} aria-label="Car price" />
         </div>
 
