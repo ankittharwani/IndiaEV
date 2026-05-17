@@ -24,11 +24,11 @@ export default function Login({ onSuccess }) {
   return (
     <div className="login-screen">
       <div className="login-logo">
-        Dad&apos;s
+        🎂
         <br />
-        <em>Car Guide</em>
+        <em>Happy Birthday, Dad</em>
       </div>
-      <p className="login-sub">A family research project · May 2026</p>
+      <p className="login-sub">We&apos;ve prepared something special for you</p>
 
       <form className="login-box" onSubmit={handleSubmit}>
         <label htmlFor="pw-input">Access password</label>
@@ -52,7 +52,7 @@ export default function Login({ onSuccess }) {
         </p>
       </form>
 
-      <p className="login-hint">Shared by Ankit · for family use only</p>
+      <p className="login-hint">From Ankit, with love · 18 May 2026</p>
     </div>
   );
 }

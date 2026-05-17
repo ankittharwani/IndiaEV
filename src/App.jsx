@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Login from "./components/Login";
+import BirthdayFlow from "./components/birthday/BirthdayFlow";
 import SummaryTab from "./components/SummaryTab";
 import ModelsTab from "./components/ModelsTab";
 import BaasTab from "./components/BaasTab";
@@ -17,10 +18,21 @@ const TABS = [
 ];
 
 export default function App() {
-  const [authed, setAuthed] = useState(false);
+  const [phase, setPhase] = useState("login");
   const [activeTab, setActiveTab] = useState("summary");
 
-  if (!authed) return <Login onSuccess={() => setAuthed(true)} />;
+  if (phase === "login")
+    return <Login onSuccess={() => setPhase("birthday")} />;
+
+  if (phase === "birthday")
+    return (
+      <BirthdayFlow
+        onComplete={() => {
+          setActiveTab("summary");
+          setPhase("main");
+        }}
+      />
+    );
 
   const ActiveComponent =
     TABS.find((t) => t.id === activeTab)?.component ?? SummaryTab;
