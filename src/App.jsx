@@ -27,14 +27,16 @@ export default function App() {
   return (
     <div className="app">
       <header className="hero">
-        <div className="hero__eyebrow">Family Car Research · May 2026</div>
-        <h1 className="hero__title">Finding Dad<br />his <em>perfect car</em></h1>
-        <p className="hero__sub">A complete analysis — models, BaaS financing, variants, and loan vs cash — so we can decide together.</p>
-        <div className="hero__chips">
-          <span className="chip chip--pick">✓ MG Windsor Exclusive</span>
-          <span className="chip">VidyutTech BaaS</span>
-          <span className="chip">₹15.53L</span>
-          <span className="chip">38 kWh · 332 km</span>
+        <div className="hero__inner">
+          <div className="hero__eyebrow">Family Car Research · May 2026</div>
+          <h1 className="hero__title">Finding Dad<br />his <em>perfect car</em></h1>
+          <p className="hero__sub">A complete analysis — models, BaaS financing, variants, and loan vs cash — so we can decide together.</p>
+          <div className="hero__chips">
+            <span className="chip chip--pick">✓ MG Windsor Exclusive</span>
+            <span className="chip">VidyutTech BaaS</span>
+            <span className="chip">₹15.53L</span>
+            <span className="chip">38 kWh · 332 km</span>
+          </div>
         </div>
       </header>
       <nav className="nav-wrap" role="navigation" aria-label="Guide sections">

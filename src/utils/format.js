@@ -7,4 +7,4 @@ export function fmt(n) {
 
 export const fmtKm = (n) => n.toLocaleString('en-IN') + ' km';
 
-export const fmtPct = (n) => n.toFixed(1) + '%';
+export const fmtPct = (n) => (Number.isInteger(n * 10) ? n.toFixed(1) : n.toFixed(2)) + '%';

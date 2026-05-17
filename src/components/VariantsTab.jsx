@@ -39,7 +39,7 @@ export default function VariantsTab() {
 
         {['Cabin & comfort', 'Tech & infotainment', 'Charging'].map((section) => {
           const sectionKeys = {
-            'Cabin & comfort': ['recliningRear', 'leather', 'ventilatedSeats', 'powerSeat', 'glassRoof', 'ambientLighting', 'airbags'],
+            'Cabin & comfort': ['recliningRear', 'leather', 'ventilatedSeats', 'powerSeat', 'glassRoof', 'ambientLighting'],
             'Tech & infotainment': ['screenSize', 'cluster', 'iSmart', 'wirelessCharge', 'speakers', 'camera360'],
             'Charging': ['fastChargerBundled', 'maxDCCharge'],
           };
