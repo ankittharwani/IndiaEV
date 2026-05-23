@@ -12,6 +12,7 @@ export default function Login({ onSuccess }) {
     setLoading(true);
     setTimeout(() => {
       if (pw.trim() === PASSWORD) {
+        localStorage.setItem("ev_authenticated", "true");
         onSuccess();
       } else {
         setErr("Incorrect password. Try again.");
