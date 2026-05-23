@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="180" height="180" viewBox="0 0 180 180">
+  <!-- Purple rounded-square background -->
+  <rect width="180" height="180" rx="36" fill="#863bff"/>
+  <!-- Bottom cake tier -->
+  <rect x="26" y="104" width="128" height="46" rx="9" fill="#fffaf3"/>
+  <rect x="26" y="104" width="128" height="11" rx="5" fill="white"/>
+  <!-- Top cake tier -->
+  <rect x="48" y="68" width="84" height="38" rx="9" fill="#fffaf3"/>
+  <rect x="48" y="68" width="84" height="10" rx="5" fill="white"/>
+  <!-- Candle -->
+  <rect x="84" y="52" width="12" height="18" rx="4" fill="#ff9f43"/>
+  <!-- Lightning bolt (replacing candle flame) -->
+  <path d="M94 26 L86 48 L91 48 L83 62 L98 44 L93 44 Z" fill="#ffeaa7"/>
+  <!-- Decorative dots on bottom tier -->
+  <circle cx="62" cy="124" r="4" fill="#a36bff" opacity="0.3"/>
+  <circle cx="90" cy="124" r="4" fill="#a36bff" opacity="0.3"/>
+  <circle cx="118" cy="124" r="4" fill="#a36bff" opacity="0.3"/>
+</svg>
