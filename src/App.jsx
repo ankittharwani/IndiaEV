@@ -23,7 +23,7 @@ const skipQuiz =
 function getInitialPhase() {
   const authed = localStorage.getItem("ev_authenticated") === "true";
   const quizDone = localStorage.getItem("ev_quiz_complete") === "true";
-  if (authed && quizDone) return "main";
+  if (authed && (quizDone || skipQuiz)) return "main";
   if (authed) return "birthday";
   return "login";
 }
@@ -43,13 +43,18 @@ export default function App() {
 
   if (phase === "birthday")
     return (
-      <BirthdayFlow
-        onComplete={() => {
-          localStorage.setItem("ev_quiz_complete", "true");
-          setActiveTab("summary");
-          setPhase("main");
-        }}
-      />
+      <>
+        <button className="logout-btn logout-btn--fixed" onClick={handleLogout}>
+          Logout
+        </button>
+        <BirthdayFlow
+          onComplete={() => {
+            localStorage.setItem("ev_quiz_complete", "true");
+            setActiveTab("summary");
+            setPhase("main");
+          }}
+        />
+      </>
     );
 
   const ActiveComponent =
