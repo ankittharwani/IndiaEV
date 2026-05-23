@@ -1204,7 +1204,11 @@ input[type="range"] {
 }
 .logout-btn--fixed {
   position: fixed;
-  top: 1rem;
-  right: 1.5rem;
   z-index: 9999;
+  background: rgba(0, 0, 0, 0.25);
+  color: rgba(255, 255, 255, 0.75);
+}
+.logout-btn--fixed:hover {
+  background: rgba(0, 0, 0, 0.4);
+  color: rgba(255, 255, 255, 0.95);
 }
