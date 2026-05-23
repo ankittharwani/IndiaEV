@@ -63,7 +63,9 @@ export default function App() {
   return (
     <div className="app">
       <header className="hero">
-        <button className="logout-btn" onClick={handleLogout}>Logout</button>
+        <button className="logout-btn" onClick={handleLogout}>
+          Logout
+        </button>
         <div className="hero__inner">
           <div className="hero__eyebrow">Family Car Research · May 2026</div>
           <h1 className="hero__title">
