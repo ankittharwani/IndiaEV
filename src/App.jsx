@@ -20,9 +20,23 @@ const TABS = [
 const skipQuiz =
   new URLSearchParams(window.location.search).get("quiz") === "0";
 
+function getInitialPhase() {
+  const authed = localStorage.getItem("ev_authenticated") === "true";
+  const quizDone = localStorage.getItem("ev_quiz_complete") === "true";
+  if (authed && quizDone) return "main";
+  if (authed) return "birthday";
+  return "login";
+}
+
 export default function App() {
-  const [phase, setPhase] = useState("login");
+  const [phase, setPhase] = useState(getInitialPhase);
   const [activeTab, setActiveTab] = useState("summary");
+
+  const handleLogout = () => {
+    localStorage.removeItem("ev_authenticated");
+    localStorage.removeItem("ev_quiz_complete");
+    setPhase("login");
+  };
 
   if (phase === "login")
     return <Login onSuccess={() => setPhase(skipQuiz ? "main" : "birthday")} />;
@@ -31,6 +45,7 @@ export default function App() {
     return (
       <BirthdayFlow
         onComplete={() => {
+          localStorage.setItem("ev_quiz_complete", "true");
           setActiveTab("summary");
           setPhase("main");
         }}
@@ -43,6 +58,7 @@ export default function App() {
   return (
     <div className="app">
       <header className="hero">
+        <button className="logout-btn" onClick={handleLogout}>Logout</button>
         <div className="hero__inner">
           <div className="hero__eyebrow">Family Car Research · May 2026</div>
           <h1 className="hero__title">

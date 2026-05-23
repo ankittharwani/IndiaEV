@@ -1182,3 +1182,23 @@ input[type="range"] {
   background: #333;
   color: #fff;
 }
+.logout-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 0.7rem;
+  font-family: var(--font-sans);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.logout-btn:hover {
+  color: rgba(255, 255, 255, 0.7);
+}
